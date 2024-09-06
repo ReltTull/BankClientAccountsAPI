@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.flyway.FlywayMigrationStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
+/*
+Данный API позволяет манипулировать списком пользователей: добавлять, менять, удалять
+ */
 
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
