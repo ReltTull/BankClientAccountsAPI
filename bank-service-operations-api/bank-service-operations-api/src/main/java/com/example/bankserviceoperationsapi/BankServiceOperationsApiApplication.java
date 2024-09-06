@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
-@PropertySource("classpath:application-authorization.properties")
+//@PropertySource("classpath:application-authorization.properties")
 public class BankServiceOperationsApiApplication {
 
 	public static void main(String[] args) {

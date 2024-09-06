@@ -39,4 +39,8 @@ public class UserService{
         return userRepository.findAll();
     }
 
+    @Transactional
+    public synchronized User getUserById (Long id) {
+        return userRepository.getReferenceById(id);
+    }
 }
