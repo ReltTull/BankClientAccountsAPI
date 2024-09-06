@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 ### Confidental patrams of database ###
-application-autorization.properties
+!**/src/main/**/resources/
 
 ### STS ###
 .apt_generated
