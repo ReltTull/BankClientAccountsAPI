@@ -13,7 +13,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
-
+/*
+Основная сущность, в качестве полей имеет лист телефонным номеров и лист email адресов
+ */
 @Entity
 @Data
 @Builder
