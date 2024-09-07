@@ -14,7 +14,7 @@ public class TelephoneService {
     @Autowired
     private TelephoneRepository telephoneRepository;
     @Transactional
-    public synchronized Telephone createTelephone(Telephone telephone) {
+    public Telephone createTelephone(Telephone telephone) {
         for (Telephone t: telephoneRepository.findAll()) {
             if (telephone.getPhoneNumber().equals(t.getPhoneNumber())) {
                 throw new DuplicateValueException("The phone number has already been registered");
@@ -23,11 +23,15 @@ public class TelephoneService {
         return telephoneRepository.save(telephone);
     }
     @Transactional
-    public synchronized void deleteById(Long id) {
+    public void deleteById(Long id) {
         telephoneRepository.deleteById(id);
     }
     @Transactional
-    public synchronized void deleteAllTelephones() {
+    public void deleteAllTelephones() {
         telephoneRepository.deleteAll();
+    }
+
+    public synchronized Iterable<Telephone> getAllTelephones() {
+        return telephoneRepository.findAll();
     }
 }

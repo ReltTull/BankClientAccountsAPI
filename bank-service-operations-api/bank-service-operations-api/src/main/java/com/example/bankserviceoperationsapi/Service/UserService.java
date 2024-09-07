@@ -15,32 +15,27 @@ public class UserService{
     private UserRepository userRepository;
 
     @Transactional
-    public synchronized User createUser(User user) {
+    public User createUser(User user) {
         return userRepository.save(user);
     }
 
     @Transactional
-    public synchronized void deleteUser(User user) {
-        userRepository.delete(user);
-    }
-
-    @Transactional
-    public synchronized void deleteUser(Long id) {
+    public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 
     @Transactional
-    public synchronized void deleteAllUsers() {
+    public void deleteAllUsers() {
         userRepository.deleteAll();
     }
 
-    @Transactional
-    public synchronized Iterable<User> getAllUsers() {
+    @Transactional(readOnly = true)
+    public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @Transactional
-    public synchronized User getUserById (Long id) {
-        return userRepository.getReferenceById(id);
+    @Transactional(readOnly = true)
+    public User getUserById (Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 }

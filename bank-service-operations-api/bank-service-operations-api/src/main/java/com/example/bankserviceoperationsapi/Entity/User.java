@@ -1,5 +1,6 @@
 package com.example.bankserviceoperationsapi.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,9 +44,11 @@ public class User {
     private Date birthDate;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Telephone> telephones = new CopyOnWriteArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Email> emails = new CopyOnWriteArrayList<>();
 
 }

@@ -29,4 +29,9 @@ public class TelephoneController {
         log.info("Telephones has been removed");
         telephoneService.deleteAllTelephones();
     }
+
+    @GetMapping("/getAllTelephones")
+    public Iterable<Telephone> getAllTelephones() {
+        return telephoneService.getAllTelephones();
+    }
 }

@@ -36,7 +36,7 @@ public class UserController {
     @DeleteMapping("/deleteUserById")
     public void deleteUserById(@RequestBody User user) {
         log.info(user.getName() + " has been removed from table users");
-        userService.deleteUser(user);
+        userService.deleteUser(user.getId());
     }
 
     @DeleteMapping("/deleteUser/{id}")

@@ -13,7 +13,7 @@ public class EmailService {
     private EmailRepository emailRepository;
 
     @Transactional
-    public synchronized Email createNewEmail(Email email) {
+    public Email createNewEmail(Email email) {
         for (Email e : emailRepository.findAll()) {
             if (email.getEmail().equals(e.getEmail())) {
                 throw new DuplicateValueException("This email has already been registered");
@@ -23,7 +23,7 @@ public class EmailService {
     }
 
     @Transactional
-    public synchronized void deleteEmailById(Long id) {
+    public void deleteEmailById(Long id) {
         emailRepository.deleteById(id);
     }
 }
